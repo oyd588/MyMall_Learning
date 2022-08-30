@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oyd.mybatis.mapper.EmployeeMapper">
+
+    <resultMap id="empResultMap" type="com.oyd.mybatis.pojo.Employee">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_Name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+<!--        <result property="dept.did" column="dept_id"></result>-->
+<!--        <result property="dept.deptName" column="dept_name"></result>-->
+<!--        <association property="dept" javaType="Dept">-->
+<!--            <id property="did" column="dept_id"></id>-->
+<!--            <result property="deptName" column="dept_name"></result>-->
+<!--        </association>-->
+<!--        <association property="dept" javaType="Dept" select="com.oyd.mybatis.mapper.DeptMapper.getDeptById" column="dept_id" fetchType="eager">-->
+<!--        </association>-->
+    </resultMap>
+    <select id="getAllEmp" resultMap="empResultMap">
+        select * from t_emp
+    </select>
+<!--    <select id="getEmpById" resultMap="empResultMap">-->
+<!--        select * from t_emp left join dept on t_emp.dept_id = dept.dept_id where t_emp.eid= #{eid}-->
+<!--    </select>-->
+    <select id="getEmpById" resultMap="empResultMap" >
+        select * from t_emp where eid = #{eid}
+    </select>
+    <select id="getEmpsByDeptId" resultType="com.oyd.mybatis.pojo.Employee">
+        select * from t_emp where dept_id = #{dept_id}
+    </select>
+</mapper>

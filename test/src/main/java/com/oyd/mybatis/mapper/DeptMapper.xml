@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oyd.mybatis.mapper.DeptMapper">
+
+    <resultMap id="deptResultMap" type="dept">
+        <constructor>
+            <idArg column="dept_id" javaType="java.lang.Integer"></idArg>
+        </constructor>
+        <id property="did" column="dept_id"></id>
+        <result property="deptName" column="dept_name"></result>
+        <collection property="emps" ofType="employee" select="com.oyd.mybatis.mapper.EmployeeMapper.getEmpsByDeptId" column="dept_id" fetchType="lazy"></collection>
+    </resultMap>
+    <select id="getDeptById" resultMap="deptResultMap">
+        select * from dept where dept_id = #{did}
+    </select>
+</mapper>

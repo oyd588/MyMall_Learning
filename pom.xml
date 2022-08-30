@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.oyd</groupId>
+    <artifactId>MyMall_Learning</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tiny01</module>
+        <module>tiny02</module>
+        <module>tiny03</module>
+        <module>tiny04</module>
+        <module>tiny05</module>
+        <module>tiny06</module>
+        <module>tiny07</module>
+        <module>tiny08</module>
+        <module>tiny09</module>
+        <module>test</module>
+        <module>redis</module>
+        <module>ElasticSearch</module>
+    </modules>
+</project>
